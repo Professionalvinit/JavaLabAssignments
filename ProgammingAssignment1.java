@@ -23,10 +23,12 @@ public class  ProgammingAssignment1 {
     public static void main(String[] args) {
         List<String> registrationNumbers = new ArrayList<>();
         registrationNumbers.add("2021CSE001");
-        registrationNumbers.add("2022INFT002");
-        registrationNumbers.add("2022CHEN003");
-        registrationNumbers.add("2023ELEC004");
-        registrationNumbers.add("2023MECH005");
+        registrationNumbers.add("2123MECH005");
+        registrationNumbers.add("3022INT002");
+        registrationNumbers.add("2072CHEN003");
+        registrationNumbers.add("2023ECH005");
+        registrationNumbers.add("1023ELEC004");
+        registrationNumbers.add("21023ECH005");
 
         int result = getValidRegistrationsCount(registrationNumbers);
         System.out.println("Number of valid registration numbers: " + result);
