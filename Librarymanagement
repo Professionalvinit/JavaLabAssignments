@@ -62,8 +62,8 @@ public class LibraryManagement {
         Library library = new Library();
 
         try {
-            library.addItem(new Book("Java Programming", "John Doe"));
-            library.addItem(new DVD("The Matrix", "Wachowskis"));
+            library.addItem(new Book("Java Programming", "alpha race"));
+            library.addItem(new DVD("The Butcher", "Prison"));
             library.addItem(null); // This will throw an exception
             library.displayLibrary();
         } catch (Exception e) {
