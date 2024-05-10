@@ -1,0 +1,27 @@
+package algebra;
+
+public class MixedToImproper {
+
+    private final int numerator;
+    private final int denominator;
+
+    public MixedToImproper(int whole_num, int num, int denom) {
+        // Convert mixed number to improper fraction
+        numerator = (whole_num * denom) + num;
+        denominator = denom;
+    }
+
+    public int getNumerator() {
+        return numerator;
+    }
+
+    public int getDenominator() {
+        return denominator;
+    }
+
+    public static void main(String[] args) {
+        MixedToImproper mixedToImproper = new MixedToImproper(3, 1, 4); // Example: 3 1/4
+        System.out.println("Numerator: " + mixedToImproper.getNumerator());
+        System.out.println("Denominator: " + mixedToImproper.getDenominator());
+    }
+}
