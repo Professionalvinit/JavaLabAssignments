@@ -1,0 +1,73 @@
+import java.util.ArrayList;
+import java.util.List;
+
+interface LibraryItem {
+    void displayDetails();
+}
+
+class Book implements LibraryItem {
+    private String title;
+    private String author;
+
+    public Book(String title, String author) {
+        this.title = title;
+        this.author = author;
+    }
+
+    public void displayDetails() {
+        System.out.println("Book Title: " + title);
+        System.out.println("Author: " + author);
+    }
+}
+
+class DVD implements LibraryItem {
+    private String title;
+    private String director;
+
+    public DVD(String title, String director) {
+        this.title = title;
+        this.director = director;
+    }
+
+    public void displayDetails() {
+        System.out.println("DVD Title: " + title);
+        System.out.println("Director: " + director);
+    }
+}
+
+class Library {
+    private List<LibraryItem> items;
+
+    public Library() {
+        items = new ArrayList<>();
+    }
+
+    public void addItem(LibraryItem item) throws Exception {
+        if (item == null) {
+            throw new Exception("Item cannot be null.");
+        }
+        items.add(item);
+    }
+
+    public void displayLibrary() {
+        for (LibraryItem item : items) {
+            item.displayDetails();
+            System.out.println();
+        }
+    }
+}
+
+public class LibraryManagement {
+    public static void main(String[] args) {
+        Library library = new Library();
+
+        try {
+            library.addItem(new Book("Java Programming", "John Doe"));
+            library.addItem(new DVD("The Matrix", "Wachowskis"));
+            library.addItem(null); // This will throw an exception
+            library.displayLibrary();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
