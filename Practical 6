@@ -1,0 +1,73 @@
+package JavaLabAssignments;
+
+import java.util.Scanner;
+
+public class isPrime {
+
+    public static long[] generateRandomArray() {
+        long[] arr = new long[1000000];
+        for (int i = 0; i < arr.length; i++) {
+            long e1 = System.currentTimeMillis() % 10;
+            long e2 = System.currentTimeMillis() % 10;
+            long e3 = System.currentTimeMillis() % 10;
+            long e4 = System.currentTimeMillis() % 10;
+            long e5 = System.currentTimeMillis() % 10;
+            long e6 = System.currentTimeMillis() % 10;
+            long e7 = System.currentTimeMillis() % 10;
+            arr[i] = (long) ((1000000 * e1) + (100000 * e2) + (10000 * e3) + (1000 * e4) + (100 * e5) + (10 * e6) + (e7));
+        }
+        return arr;
+    }
+
+    public static boolean isPrime(long n) {
+        if (n <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean isNonPrime(long n) {
+        return !isPrime(n);
+    }
+
+    public static int countPrimes(long[] arr) {
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (isPrime(arr[i])) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static int countNonPrimes(long[] arr) {
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (isNonPrime(arr[i])) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        long[] arr = generateRandomArray();
+
+        long start, end;
+        start = System.currentTimeMillis();
+        System.out.println("Total prime: " + countPrimes(arr));
+        end = System.currentTimeMillis();
+        System.out.println("Time required for prime: " + (end - start));
+
+        start = System.currentTimeMillis();
+        System.out.println("Total non prime: " + countNonPrimes(arr));
+        end = System.currentTimeMillis();
+        System.out.println("Time required for non prime: " + (end - start));
+    }
+}
